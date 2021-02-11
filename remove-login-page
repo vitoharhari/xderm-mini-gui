@@ -1,0 +1,71 @@
+#!/bin/bash
+clear
+
+#-- colors v2 --#
+R='\e[31;1m' #RED
+G='\e[32;1m' #GREEN
+Y='\e[33;1m' #YELLOW
+DB='\e[34;1m' #DARKBLUE
+P='\e[35;1m' #PURPLE
+LB='\e[36;1m' #LIGHTBLUE
+
+#-- colors v3 --#
+BR='\e[3;31m' #RED
+BG='\e[3;32m' #GREEN
+BY='\e[3;33m' #YELLOW
+BDB='\e[3;34m' #DARKBLUE
+BP='\e[3;35m' #PURPLE
+BLB='\e[3;36m' #LIGHTBLUE
+
+
+clear
+echo -e "$DB ************************************************"
+echo -e "$DB *$G      remove login page xderm-mini-gui        $DB*"
+echo -e "$DB ************************************************"
+echo -e "$LB"
+echo -e " remove login page xderm-mini-gui..."
+sleep 2
+echo -e ""
+echo -e "$R"
+
+cek=$(find /www/xderm)
+if [[ $cek == *"login.php"* ]]; then
+rm -rf /www/xderm/login.php
+echo -e " file login.php berhasil dihapus"
+sleep 1
+else
+echo -e "$Y file login.php gagal dihapus karena tidak ditemukan"
+sleep 1
+fi
+
+cek=$(find /root/)
+if [[ $cek == *"auth.txt"* ]]; then
+rm -rf /root/auth.txt
+echo -e "$R file auth.txt berhasil dihapus"
+sleep 1
+else
+echo -e "$Y file auth.txt gagal dihapus karena tidak ditemukan"
+sleep 1
+fi
+
+cek=$(find /www/xderm)
+if [[ $cek == *"header.php"* ]]; then
+rm -rf /www/xderm/header.php
+echo -e "$R file header.php berhasil dihapus"
+echo -e ""
+sleep 2
+echo -e "$Y login page xderm-mini-gui berhasil dihapus"
+echo -e ""
+sleep 1
+else
+echo -e "$Y file header.php gagal dihapus karena tidak ditemukan"
+sleep 1
+fi
+rm -rf /root/remove-login-page
+
+
+
+
+
+
+

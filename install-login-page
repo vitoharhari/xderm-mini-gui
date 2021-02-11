@@ -1,0 +1,71 @@
+#!/bin/bash
+clear
+
+#-- colors v2 --#
+R='\e[31;1m' #RED
+G='\e[32;1m' #GREEN
+Y='\e[33;1m' #YELLOW
+DB='\e[34;1m' #DARKBLUE
+P='\e[35;1m' #PURPLE
+LB='\e[36;1m' #LIGHTBLUE
+
+#-- colors v3 --#
+BR='\e[3;31m' #RED
+BG='\e[3;32m' #GREEN
+BY='\e[3;33m' #YELLOW
+BDB='\e[3;34m' #DARKBLUE
+BP='\e[3;35m' #PURPLE
+BLB='\e[3;36m' #LIGHTBLUE
+
+url="https://raw.githubusercontent.com/ryanfauzi1/xderm-mini_GUI/main"
+
+clear
+echo -e "$DB ************************************************"
+echo -e "$DB *$G      install login page xderm-mini-gui       $DB*"
+echo -e "$DB ************************************************"
+echo -e "$LB"
+echo -e " installing login page xderm-mini-gui..."
+sleep 2
+echo -e ""
+echo -e "$R"
+
+cek=$(find /www/xderm)
+if [[ $cek == *"login.php"* ]]; then
+rm -rf /www/xderm/login.php
+echo -e " file duplikat berhasil dihapus"
+echo -e ""
+sleep 1
+fi
+echo -e "$G downloading file login.php..."
+sleep 1
+wget --no-check-certificate "$url/login.php" -P /www/xderm/ -q
+echo -e "$R login.php berhasil di download"
+echo -e ""
+sleep 1
+
+cek=$(find /www/xderm)
+if [[ $cek == *"header.php"* ]]; then
+rm -rf /www/xderm/header.php
+echo -e "$R file duplikat berhasil dihapus"
+echo -e ""
+sleep 1
+fi
+echo -e "$G downloading file header.php..."
+sleep 1
+wget --no-check-certificate "$url/header.php" -P /www/xderm/ -q
+echo -e "$R header.php berhasil di download"
+sleep 1
+echo -e ""
+echo -e "$Y login page xderm-mini-gui berhasil di install\n"
+echo -e "user=admin\npasswd=xderm" > /root/auth.txt
+echo -e " Default Authentication\n Username: admin\n Password: xderm\n"
+echo -e " Untuk mengganti U/P silahkan edit /root/auth.txt"
+echo -e " terima kasih.\n"
+rm -rf /root/install-login-page
+
+
+
+
+
+
+
