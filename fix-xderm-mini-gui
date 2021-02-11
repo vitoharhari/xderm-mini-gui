@@ -1,9 +1,0 @@
-#!/bin/bash
-echo "auto install php package"
-echo "###############################"
-echo "installing paket...."
-opkg update && opkg install php7 php7-cgi php7-mod-session
-echo "reconfigure uhttp..."
-sed -i "s|$(grep \".php=/usr/bin/php-cgi\" uhttpd)|list interpreter \".php=/usr/bin/php-cgi\"|g" /etc/config/uhttpd
-echo "rebooting.....";sleep 4
-reboot
